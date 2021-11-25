@@ -276,6 +276,33 @@ const data = [
   }
 ];
 
+const theme = // You can pass this object to the `theme` property
+{
+    "background": "#2e3436",
+    "textColor": "#ffffff",
+    "fontSize": 11,
+    "axis": {
+        "domain": {
+            "line": {
+                "stroke": "#777777",
+                "strokeWidth": 1
+            }
+        },
+        "ticks": {
+            "line": {
+                "stroke": "#777777",
+                "strokeWidth": 1
+            }
+        }
+    },
+    "grid": {
+        "line": {
+            "stroke": "#dddddd",
+            "strokeWidth": 1
+        }
+    }
+}
+
 
 // https://nivo.rocks/line/
 
@@ -284,6 +311,7 @@ function App() {
     <div className="App" style={{height:500}}>
 
       <ResponsiveLine
+        theme={theme}
         data={data}
         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
         xScale={{ type: 'point' }}
@@ -291,6 +319,7 @@ function App() {
         yFormat=" >-.2f"
         axisTop={null}
         axisRight={null}
+        curve={'monotoneX'}
         /*
         axisBottom={{
           orient: 'bottom',
